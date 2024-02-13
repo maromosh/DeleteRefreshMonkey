@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DeleeRefreshMonkey.ViewModels;
+using DeleeRefreshMonkey.Views;
+using Microsoft.Extensions.Logging;
 
 namespace DeleeRefreshMonkey
 {
@@ -18,7 +20,10 @@ namespace DeleeRefreshMonkey
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddTransient<MonkeysDetailsView>();
+            builder.Services.AddTransient<MonkeyView>();
+            builder.Services.AddTransient<MonkeyDetalisViewModels>();
+            builder.Services.AddTransient<MonkeyViewModel>();
             return builder.Build();
         }
     }

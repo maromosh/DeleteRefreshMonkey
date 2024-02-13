@@ -25,6 +25,21 @@ namespace DeleeRefreshMonkey.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private Monkey selectedMonkey;
+        public Monkey SelectedMonkey
+        {
+            get
+            {
+                return this.selectedMonkey;
+            }
+            set
+            {
+                this.selectedMonkey = value;
+                OnPropertyChanged();
+            }
+        }
+
         public MonkeyViewModel()
         {
             monkeys = new ObservableCollection<Monkey>();
@@ -49,7 +64,23 @@ namespace DeleeRefreshMonkey.ViewModels
             }
         }
 
-   
+        public ICommand SingleSelectCommand => new Command(OnSingleSelectStudent);
+
+        async void OnSingleSelectStudent()
+        {
+            if (SelectedMonkey != null)
+            {
+                var navParam = new Dictionary<string, object>()
+                {
+                      { "theMonkey",SelectedMonkey}
+                };
+                //Add goto here to show details
+                await Shell.Current.GoToAsync("MonkeyDetails", navParam);
+
+                SelectedMonkey = null;
+            }
+        }
+
         #region Refresh View
         public ICommand RefreshCommand => new Command(Refresh);
         private async void Refresh()

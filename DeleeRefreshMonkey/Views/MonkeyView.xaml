@@ -5,7 +5,10 @@
              Title="MonkeyView">
     <RefreshView 
              Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
-        <CollectionView ItemsSource="{Binding Monkeys}" x:Name="theCollectionView">
+        <CollectionView ItemsSource="{Binding Monkeys}" x:Name="theCollectionView" 
+                        SelectionMode="Single" 
+                        SelectedItem="{Binding SelectedMonkey}" 
+                        SelectionChangedCommand="{Binding SingleSelectCommand}">
 
             <CollectionView.ItemTemplate>
             <DataTemplate>
