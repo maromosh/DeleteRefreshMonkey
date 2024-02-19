@@ -24,9 +24,8 @@
             <Label Grid.Column="0" Grid.Row="2"
                                Text="{Binding SelectedMonkey.Details, StringFormat='{0:MMMM dd, yyyy}'}" 
                                FontAttributes="Italic" HorizontalOptions="Center"/>
-            <Label Grid.Column="0" Grid.Row="3"
-                               Text="{Binding SelectedMonkey.ImageUrl}" 
-                               FontAttributes="None" 
+            <Image Grid.Column="0" Grid.Row="3"
+                               Source="{Binding SelectedMonkey.ImageUrl}" 
                                HorizontalOptions="Center"/>
             <Label Grid.Column="0" Grid.Row="4"
                      Text="{Binding SelectedMonkey.IsFavorite}" 

@@ -45,7 +45,64 @@ namespace DeleeRefreshMonkey.ViewModels
             monkeys = new ObservableCollection<Monkey>();
             IsRefreshing = false;
             ReadMonkeys();
+            Loc = new ObservableCollection<LocationModel>();
+            FillLoc();
         }
+
+        #region Picker 
+        private ObservableCollection<LocationModel> loc;
+        public ObservableCollection<LocationModel> Loc
+        {
+            get
+            {
+                return this.loc;
+            }
+            set
+            {
+                this.loc = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private LocationModel selectedLoc;
+        public LocationModel SelectedLoc
+        {
+            get
+            {
+                return this.selectedLoc;
+            }
+            set
+            {
+                this.selectedLoc = value;
+                OnPickerChanged();
+                OnPropertyChanged();
+            }
+        }
+
+
+        private void OnPickerChanged()
+        {
+            ReadMonkeys();
+            if (SelectedLoc != null)
+            {
+                List<Monkey> tobeRemoved = Monkeys.Where(s => s.Location != SelectedLoc.LocationM).ToList();
+                foreach (Monkey m in tobeRemoved)
+                {
+                    Monkeys.Remove(m);
+                }
+            }
+        }
+
+        private void FillLoc()
+        {
+            Loc.Add(new LocationModel { Id = 0, LocationM = "Asia" });
+            Loc.Add(new LocationModel { Id = 0, LocationM = "America" });
+            Loc.Add(new LocationModel { Id = 0, LocationM = "China" });
+            Loc.Add(new LocationModel { Id = 0, LocationM = "Brazil" });
+
+            
+        }
+        #endregion
 
         private async void ReadMonkeys()
         {
