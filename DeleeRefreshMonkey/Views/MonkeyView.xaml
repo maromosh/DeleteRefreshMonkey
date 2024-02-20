@@ -7,8 +7,8 @@
              Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
         <VerticalStackLayout>
             <Picker Title="Select a country"
-                    ItemsSource="{Binding }"
-                    ItemDisplayBinding=""/>
+                    ItemsSource="{Binding Loc}"
+                    ItemDisplayBinding="{Binding LocationM}" SelectedItem="{Binding SelectedLoc}"/>
 
 
             <CollectionView ItemsSource="{Binding Monkeys}" x:Name="theCollectionView" 

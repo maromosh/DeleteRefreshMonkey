@@ -97,10 +97,10 @@ namespace DeleeRefreshMonkey.ViewModels
         {
             Loc.Add(new LocationModel { Id = 0, LocationM = "Asia" });
             Loc.Add(new LocationModel { Id = 0, LocationM = "America" });
-            Loc.Add(new LocationModel { Id = 0, LocationM = "China" });
+            Loc.Add(new LocationModel { Id = 0, LocationM = "Africa" });
             Loc.Add(new LocationModel { Id = 0, LocationM = "Brazil" });
-
-            
+            Loc.Add(new LocationModel { Id = 0, LocationM = "Israel" });
+            Loc.Add(new LocationModel { Id = 0, LocationM = "China" });
         }
         #endregion
 
